@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Bio } from "../../data/constants";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import { FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -88,29 +84,26 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Rishav Chanda</Logo>
+        <Logo>Furquan Barudgar</Logo>
         <Nav>
           <NavLink href="#About">About</NavLink>
           <NavLink href="#Skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
+          <NavLink href="#Experience">Certifications</NavLink>
           <NavLink href="#Projects">Projects</NavLink>
           <NavLink href="#Education">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display">
-            <FacebookIcon />
+          <SocialMediaIcon href="https://www.linkedin.com/in/furquan-barudgar" target="_blank">
+            <FaLinkedin />
           </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target="display">
-            <TwitterIcon />
+          <SocialMediaIcon href="mailto:furquanbarudgar0@gmail.com">
+            <FaEnvelope />
           </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.linkedin} target="display">
-            <LinkedInIcon />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display">
-            <InstagramIcon />
+          <SocialMediaIcon href="https://github.com/furquan-barudgar" target="_blank">
+            <FaGithub />
           </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright>&copy; 2024 Rishav Chanda. All rights reserved.</Copyright>
+        <Copyright>&copy; 2024 Furquan Barudgar. All rights reserved.</Copyright>
       </FooterWrapper>
     </FooterContainer>
   );

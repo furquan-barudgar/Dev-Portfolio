@@ -23,10 +23,16 @@ const Body = styled.div`
   flex-direction: column;
 `;
 
-const Role = styled.div`
+const RoleLink = styled.a`
   font-size: 18px;
   font-weight: 600px;
   color: ${({ theme }) => theme.text_primary + 99};
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   @media only screen and (max-width: 768px) {
     font-size: 14px;
@@ -50,14 +56,14 @@ const Date = styled.div`
     font-size: 10px;
   }
 `;
-const Grade = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_secondary + 99};
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
+// const Grade = styled.div`
+//   font-size: 14px;
+//   font-weight: 500;
+//   color: ${({ theme }) => theme.text_secondary + 99};
+//   @media only screen and (max-width: 768px) {
+//     font-size: 12px;
+//   }
+// `;
 
 const Description = styled.div`
   width: 100%;
@@ -95,6 +101,10 @@ const ItemWrapper = styled.div`
 `;
 
 const ExperienceCard = ({ experience }) => {
+  const openPdf = () => {
+    window.open(experience.pdfUrl, "_blank");
+  };
+
   return (
     <VerticalTimelineElement
       icon={
@@ -113,7 +123,6 @@ const ExperienceCard = ({ experience }) => {
         background: "#1d1836",
         color: "#fff",
         boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
-        // backdropFilter: "blur(3px) saturate(106%)",
         backgroundColor: "rgba(17, 25, 40, 0.83)",
         border: "1px solid rgba(255, 255, 255, 0.125)",
         borderRadius: "6px",
@@ -126,7 +135,9 @@ const ExperienceCard = ({ experience }) => {
       <Top>
         <Image src={experience.img} />
         <Body>
-          <Role>{experience.role}</Role>
+          <RoleLink href="#" onClick={openPdf}>
+            {experience.role}
+          </RoleLink>
           <Company>{experience.company}</Company>
           <Date>{experience.date}</Date>
         </Body>
@@ -140,7 +151,7 @@ const ExperienceCard = ({ experience }) => {
               <b>Skills:</b>
               <ItemWrapper>
                 {experience?.skills?.map((skill, index) => (
-                  <Skill>• {skill}</Skill>
+                  <Skill key={index}>• {skill}</Skill>
                 ))}
               </ItemWrapper>
             </Skills>

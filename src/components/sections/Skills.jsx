@@ -48,9 +48,9 @@ const Desc = styled.div`
 `;
 
 const SkillsContainer = styled.div`
-  width: 100%;
+  width: 200%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-top: 20px;
   gap: 50px;
   justify-content: center;
@@ -128,7 +128,7 @@ const Skills = () => {
           }}
         >
           Here are some of my skills on which I have been working on for the
-          past 3 years.
+          past few years.
         </Desc>
 
         <SkillsContainer>

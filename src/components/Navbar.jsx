@@ -3,6 +3,8 @@ import { Link as LinkR } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
 import { MenuRounded } from "@mui/icons-material";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -139,8 +141,8 @@ const Navbar = () => {
     <Nav>
       <NavbarContainer>
         <NavLogo to="/">
-          <ColorText>&lt;</ColorText>Rishav
-          <div style={{ color: theme.primary }}>/</div>Chanda
+          <ColorText>&lt;</ColorText>Furquan
+          <div style={{ color: theme.primary }}>/</div>Barudgar
           <ColorText>&gt;</ColorText>
         </NavLogo>
 
@@ -151,7 +153,7 @@ const Navbar = () => {
         <NavItems>
           <NavLink href="#About">About</NavLink>
           <NavLink href="#Skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
+          <NavLink href="#Experience">Certifications</NavLink>
           <NavLink href="#Projects">Projects</NavLink>
           <NavLink href="#Education">Education</NavLink>
         </NavItems>
@@ -174,21 +176,22 @@ const Navbar = () => {
               Education
             </NavLink>
             <GithubButton
-              href={Bio.github}
+            
+              href={Bio.linkedin}
               target="_Blank"
               style={{
                 background: theme.primary,
                 color: theme.text_primary,
               }}
             >
-              Github Profile
+              Linkedin
             </GithubButton>
           </MobileMenu>
         )}
 
         <ButtonContainer>
-          <GithubButton href={Bio.github} target="_Blank">
-            Github Profile
+          <GithubButton href={Bio.linkedin} target="_Blank">
+            Linkedin
           </GithubButton>
         </ButtonContainer>
       </NavbarContainer>

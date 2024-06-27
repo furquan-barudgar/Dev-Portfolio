@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/constants";
 import Typewriter from "typewriter-effect";
-import HeroImg from "../../images/HeroImage.jpg";
+import HeroImg from "../../images/HeroImage.png";
 import HeroBgAnimation from "../HeroBgAnimation";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
@@ -12,6 +12,8 @@ import {
   headTextAnimation,
 } from "../../utils/motion";
 import StarCanvas from "../canvas/Stars";
+import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from "react-icons/fa";
+
 
 const HeroContainer = styled.div`
   display: flex;
@@ -130,11 +132,32 @@ const SubTitle = styled.div`
   }
 `;
 
-const ResumeButton = styled.a`
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const ButtonRow = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+const Button = styled.a`
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
   width: 95%;
   max-width: 300px;
@@ -162,28 +185,62 @@ const ResumeButton = styled.a`
   font-weight: 600;
   font-size: 20px;
 
-     &:hover {
-        transform: scale(1.05);
+  &:hover {
+    transform: scale(1.05);
     transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
+    box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
     filter: brightness(1);
-    }    
-    
-    
-    @media (max-width: 640px) {
-        padding: 12px 0;
-        font-size: 18px;
-    } 
-    color: white;
+  }
+
+  @media (max-width: 640px) {
+    padding: 12px 0;
+    font-size: 18px;
+  }
+  color: white;
+`;
+
+const IconButton = styled.a`
+  color: white;
+  font-size: 24px;
+  background: hsla(271, 100%, 50%, 1);
+  background: linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+    box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
+    filter: brightness(1);
+  }
 `;
 
 const Img = styled.img`
   border-radius: 50%;
   width: 100%;
   height: 100%;
-  max-width: 400px;
-  max-height: 400px;
-  border: 2px solid ${({ theme }) => theme.primary};
+  max-width: 600px;
+  max-height: 600px;
+  // border: 2px solid ${({ theme }) => theme.primary};
 
   @media (max-width: 640px) {
     max-width: 280px;
@@ -214,6 +271,7 @@ const HeroBg = styled.div`
     padding: 0 0px;
   }
 `;
+
 
 const Hero = () => {
   return (
@@ -249,14 +307,29 @@ const Hero = () => {
                 <SubTitle>{Bio.description}</SubTitle>
               </motion.div>
 
-              <ResumeButton href={Bio.resume} target="_blank">
-                Check Resume
-              </ResumeButton>
+              <ButtonContainer>
+                <ButtonRow>
+                  <IconButton href={Bio.github} target="_blank">
+                    <FaGithub />
+                  </IconButton>
+                  <IconButton href={Bio.linkedin} target="_blank">
+                    <FaLinkedin />
+                  </IconButton>
+                </ButtonRow>
+                <Button href={Bio.resume} target="_blank">
+                  <FaDownload />
+                   Resume
+                </Button>
+                <Button href={`mailto:${Bio.email}`} target="_blank">
+                  <FaEnvelope />
+                  Get in Touch
+                </Button>
+              </ButtonContainer>
             </HeroLeftContainer>
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>
                 <Tilt>
-                  <Img src={HeroImg} alt="Rishav Chanda" />
+                  <Img src={HeroImg} alt="Furquan Barudgar" />
                 </Tilt>
               </motion.div>
             </HeroRightContainer>
